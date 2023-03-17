@@ -1,0 +1,4169 @@
+{
+	"info": {
+		"_postman_id": "f5bd962e-c11b-46fc-92fe-360bc03e1b02",
+		"name": "kima4_final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23775325"
+	},
+	"item": [
+		{
+			"name": "post pet1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id1\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Ralph\");\r",
+							"   pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Golden Retriever\");\r",
+							"   pm.expect(pm.response.json()[\"age\"]).to.eq(5);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ralph\",\r\n    \"breed\": \"Golden Retriever\",\r\n    \"age\": 5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post pet2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id2\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"James\");\r",
+							"   pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Boxer\");\r",
+							"   pm.expect(pm.response.json()[\"age\"]).to.eq(9);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"James\",\r\n    \"breed\": \"Boxer\",\r\n    \"age\": 9\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post pet3 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id3\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Bobo\");\r",
+							"   pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Chimpanzee\");\r",
+							"   pm.expect(pm.response.json()[\"age\"]).to.eq(13);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Bobo\",\r\n    \"breed\": \"Chimpanzee\",\r\n    \"age\": 13\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post pet4 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id4\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Suzie\");\r",
+							"   pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Scorpion\");\r",
+							"   pm.expect(pm.response.json()[\"age\"]).to.eq(1);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Suzie\",\r\n    \"breed\": \"Scorpion\",\r\n    \"age\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post pet5 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id5\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Elliot\",\r\n    \"breed\": \"Tarantula\",\r\n    \"age\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post pet6 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id6\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Scruffy\",\r\n    \"breed\": \"Armadillo\",\r\n    \"age\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post pet7 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id7\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Excalibur\",\r\n    \"breed\": \"Giraffe\",\r\n    \"age\": 11\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post pet8, user 2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"pet_id8\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Lucifer\",\r\n    \"breed\": \"Rabbit\",\r\n    \"age\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"users have correct attributes showing\", function () {\r",
+							"    //Check for correct number of loads\r",
+							"    pm.expect(pm.response.json()[0]).to.have.property(\"owner_id\");\r",
+							"    pm.expect(pm.response.json()[0]).to.have.property(\"num_pets\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/users",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"owner_id\"]).to.eq(pm.environment.get(\"user_id1\"));\r",
+							"   pm.expect(pm.response.json()[\"pets\"].length).to.eq(7);\r",
+							"   pm.expect(pm.response.json()[\"pets\"][0]).to.have.property(\"self\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/users/\" + pm.response.json()[\"owner_id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/users/{{user_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users",
+						"{{user_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"owner_id\"]).to.eq(pm.environment.get(\"user_id2\"));\r",
+							"   pm.expect(pm.response.json()[\"pets\"].length).to.eq(1);\r",
+							"   pm.expect(pm.response.json()[\"pets\"][0]).to.have.property(\"self\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/users/\" + pm.response.json()[\"owner_id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/users/{{user_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users",
+						"{{user_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to get another user's information 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"   //Check for appropriate 403 status code\r",
+							"   pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/users/{{user_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users",
+						"{{user_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user1 pets pagination page 1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"only correct number of pets in response\", function () {\r",
+							"    //Check for correct number of loads\r",
+							"    pm.expect(pm.response.json()[\"pets\"].length).to.equal(5);\r",
+							"    pm.expect(pm.response.json()).to.have.property(\"next\");\r",
+							"    pm.environment.set(\"pet_page2_url\", pm.response.json()[\"next\"]);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user1 pets pagination page 2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"only correct number of pets in response\", function () {\r",
+							"    //Check for correct number of loads\r",
+							"    pm.expect(pm.response.json()[\"pets\"].length).to.equal(2);\r",
+							"    pm.expect(pm.response.json()).to.not.have.key(\"next\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{pet_page2_url}}",
+					"host": [
+						"{{pet_page2_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pet1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"Ralph\");\r",
+							"    pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Golden Retriever\");\r",
+							"    pm.expect(pm.response.json()[\"age\"]).to.eq(5);\r",
+							"    //Check if the self url is correct\r",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put pet3 303",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"303 see other\", function () {\r",
+							"    pm.response.to.have.status(303);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Location header is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Location\");\r",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.environment.get(\"pet_id3\");\r",
+							"    //Set pet id environment variable from response\r",
+							"    pm.environment.set(\"put_pet_url\", pm.response.headers.get(\"Location\"));\r",
+							"    pm.response.to.be.header(\"Location\", self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jojo\",\r\n    \"breed\": \"Bonobo\",\r\n    \"age\": 14\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get updated pet3 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"Jojo\");\r",
+							"    pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Bonobo\");\r",
+							"    pm.expect(pm.response.json()[\"age\"]).to.eq(14);\r",
+							"    //Check if the self url is correct\r",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{put_pet_url}}",
+					"host": [
+						"{{put_pet_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch pet4 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for 200 status code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Susan\");\r",
+							"   pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Scorpion\");\r",
+							"   pm.expect(pm.response.json()[\"age\"]).to.eq(2);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Susan\",\r\n    \"age\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id4}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id4}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet7 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id7}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id7}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pets page 2 after deleting pet7 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"only correct number of pets in response\", function () {\r",
+							"    //Check for correct number of loads\r",
+							"    pm.expect(pm.response.json()[\"pets\"].length).to.equal(1);\r",
+							"    pm.expect(pm.response.json()).to.not.have.key(\"next\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{pet_page2_url}}",
+					"host": [
+						"{{pet_page2_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user1 after deleting pet7 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"owner_id\"]).to.eq(pm.environment.get(\"user_id1\"));\r",
+							"   pm.expect(pm.response.json()[\"pets\"].length).to.eq(6);\r",
+							"   pm.expect(pm.response.json()[\"pets\"][0]).to.have.property(\"self\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/users/\" + pm.response.json()[\"owner_id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/users/{{user_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"users",
+						"{{user_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to change pet3's owner 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"400 status code\", function () {\r",
+							"    //Check for 400 status code\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"owner\": \"Owner137834629\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to change pet3's school 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"400 status code\", function () {\r",
+							"    //Check for 400 status code\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"school\": 12973936\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to get someone else's pet 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    //Check for 403 status code\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to patch someone else's pet 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    //Check for 403 status code\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": 43\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to put someone else's pet 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    //Check for 403 status code\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sammy\",\r\n    \"breed\": \"Cat\",\r\n    \"age\": 4\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to delete someone else's pet 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    //Check for 403 status code\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to get pet with invalid jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{badjwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to patch pet with invalid jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{badjwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": 43\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to put pet with invalid jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{badjwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sammy\",\r\n    \"breed\": \"Cat\",\r\n    \"age\": 4\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to delete pet with invalid jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{badjwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to get pet without jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to patch pet without jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": 43\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to put pet without jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sammy\",\r\n    \"breed\": \"Cat\",\r\n    \"age\": 4\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to delete pet without jwt 401",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"401 status code\", function () {\r",
+							"    //Check for 401 status code\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to put to pets 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 status code\", function () {\r",
+							"    //Check for 405 status code\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Accept header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Accept\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Hobbes\",\r\n    \"breed\": \"Tiger\",\r\n    \"age\": 3\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to patch to pets 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 status code\", function () {\r",
+							"    //Check for 405 status code\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Accept header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Accept\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Superman\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to delete to pets 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 status code\", function () {\r",
+							"    //Check for 405 status code\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Accept header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Accept\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{app_url}}/pets",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to get pet asking for invalid MIME type 406",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"406 status code\", function () {\r",
+							"    //Check for 406 status code\r",
+							"    pm.response.to.have.status(406);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post school1 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"school_id1\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Obedience\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Austin, Texas\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Jimmy Spalter\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Obedience\",\r\n    \"location\": \"Austin, Texas\",\r\n    \"headmaster\": \"Jimmy Spalter\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post school2 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"school_id2\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Doggy Daycare\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Miami, Florida\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Rachael Upstart\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Doggy Daycare\",\r\n    \"location\": \"Miami, Florida\",\r\n    \"headmaster\": \"Rachael Upstart\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post school3 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"school_id3\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Electrical Engineering for Animals\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Melbourne, Australia\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Xavier Hotbread\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Electrical Engineering for Animals\",\r\n    \"location\": \"Melbourne, Australia\",\r\n    \"headmaster\": \"Xavier Hotbread\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post school4 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"school_id4\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Skydiving for Pets\",\r\n    \"location\": \"Vienna, Austria\",\r\n    \"headmaster\": \"Hans Weiss\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post school5 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"school_id5\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Air Bud Basketball Camp\",\r\n    \"location\": \"Juneau, Alaska\",\r\n    \"headmaster\": \"Buddy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post school6 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Set boat id environment variable from response\r",
+							"pm.environment.set(\"school_id6\", pm.response.json()[\"id\"]);\r",
+							"\r",
+							"pm.test(\"201 status code\", function () {\r",
+							"    //Check for 201 status code\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Animal CPR Training\",\r\n    \"location\": \"Lima, Peru\",\r\n    \"headmaster\": \"Gustavo Alvarez\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get schools pagination page 1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"only correct number of pets in response\", function () {\r",
+							"    //Check for correct number of loads\r",
+							"    pm.expect(pm.response.json()[\"schools\"].length).to.equal(5);\r",
+							"    pm.expect(pm.response.json()).to.have.property('next');\r",
+							"    pm.environment.set(\"school_page2_url\", pm.response.json()[\"next\"]);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get schools pagination page 2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"only correct number of pets in response\", function () {\r",
+							"    //Check for correct number of loads\r",
+							"    pm.expect(pm.response.json()[\"schools\"].length).to.equal(1);\r",
+							"    pm.expect(pm.response.json()).to.not.have.property('next');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{school_page2_url}}",
+					"host": [
+						"{{school_page2_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get school2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Doggy Daycare\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Miami, Florida\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Rachael Upstart\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put school2 303",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"303 see other\", function () {\r",
+							"    pm.response.to.have.status(303);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Location header is correct\", function () {\r",
+							"    pm.response.to.have.header(\"Location\");\r",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.environment.get(\"school_id2\");\r",
+							"    //Set pet id environment variable from response\r",
+							"    pm.environment.set(\"put_school_url\", pm.response.headers.get(\"Location\"));\r",
+							"    pm.response.to.be.header(\"Location\", self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Kitten Karetakers\",\r\n    \"location\": \"London, England\",\r\n    \"headmaster\": \"Joshua Downstop\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get updated school2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Kitten Karetakers\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"London, England\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Joshua Downstop\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch school3 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Mechanical Engineering for Animals\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Melbourne, Australia\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Xavier Coldbread\");\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mechanical Engineering for Animals\",\r\n    \"headmaster\": \"Xavier Coldbread\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete school6 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id6}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get schools after deleting school6 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"   //Check for appropriate 200 status code\r",
+							"   pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"only correct number of pets in response\", function () {\r",
+							"    //Check for correct number of loads\r",
+							"    pm.expect(pm.response.json()[\"schools\"].length).to.equal(5);\r",
+							"    pm.expect(pm.response.json()).to.not.have.property('next');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to patch school2's students 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"400 status code\", function () {\r",
+							"    //Check for 400 status code\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"students\": [37839203283, 3939237983279]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to put to schools 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 status code\", function () {\r",
+							"    //Check for 405 status code\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Accept header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Accept\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Clown Training\",\r\n    \"location\": \"Ganymede, Moon of Jupiter\",\r\n    \"headmaster\": \"Nota Nalien\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to patch to schools 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 status code\", function () {\r",
+							"    //Check for 405 status code\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Accept header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Accept\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"headmaster\": \"Jillian Goll\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to delete to schools 405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"405 status code\", function () {\r",
+							"    //Check for 405 status code\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Accept header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Accept\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{app_url}}/schools",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to get school asking for invalid MIME type 406",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"406 status code\", function () {\r",
+							"    //Check for 406 status code\r",
+							"    pm.response.to.have.status(406);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get school1 before enrolling pet 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Obedience\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Austin, Texas\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Jimmy Spalter\");\r",
+							"   pm.expect(pm.response.json()[\"students\"].length).to.eq(0);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pet6 before adding to school 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"Scruffy\");\r",
+							"    pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Armadillo\");\r",
+							"    pm.expect(pm.response.json()[\"age\"]).to.eq(2);\r",
+							"    pm.expect(pm.response.json()[\"school\"]).to.eq(null);\r",
+							"    //Check if the self url is correct\r",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id6}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add pet6 to school1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id6}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id6}}",
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get school1 after adding pet6 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Obedience\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Austin, Texas\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Jimmy Spalter\");\r",
+							"   pm.expect(pm.response.json()[\"students\"].length).to.eq(1);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pet6 after adding to school1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"Scruffy\");\r",
+							"    pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Armadillo\");\r",
+							"    pm.expect(pm.response.json()[\"age\"]).to.eq(2);\r",
+							"    pm.expect(pm.response.json()[\"school\"][\"id\"]).to.eq(pm.environment.get(\"school_id1\"));\r",
+							"    //Check if the self url is correct\r",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id6}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add pet5 to school1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id5}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id5}}",
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add pet4 to school1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id4}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id4}}",
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get school1 after adding pets 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Obedience\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Austin, Texas\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Jimmy Spalter\");\r",
+							"   pm.expect(pm.response.json()[\"students\"].length).to.eq(3);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "try to add pet5 to school2 403",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"403 status code\", function () {\r",
+							"    //Check for 403 status code\r",
+							"    pm.response.to.have.status(403);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id5}}/schools/{{school_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id5}}",
+						"schools",
+						"{{school_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet5 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id5}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id5}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get school1 after deleting pet5 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Obedience\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Austin, Texas\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Jimmy Spalter\");\r",
+							"   pm.expect(pm.response.json()[\"students\"].length).to.eq(2);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove pet6 from school1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id6}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id6}}",
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get school1 after removing pet6 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"Obedience\");\r",
+							"   pm.expect(pm.response.json()[\"location\"]).to.eq(\"Austin, Texas\");\r",
+							"   pm.expect(pm.response.json()[\"headmaster\"]).to.eq(\"Jimmy Spalter\");\r",
+							"   pm.expect(pm.response.json()[\"students\"].length).to.eq(1);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/schools/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pet6 after removing from school1 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for success 200 response code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"    //Check if the content is valid\r",
+							"    pm.expect(pm.response.json()[\"name\"]).to.eq(\"Scruffy\");\r",
+							"    pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Armadillo\");\r",
+							"    pm.expect(pm.response.json()[\"age\"]).to.eq(2);\r",
+							"    pm.expect(pm.response.json()[\"school\"]).to.eq(null);\r",
+							"    //Check if the self url is correct\r",
+							"    const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"    pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id6}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add pet2 to school2 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for appropriate 204 status code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id2}}/schools/{{school_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id2}}",
+						"schools",
+						"{{school_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pet2 after adding to school2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for 200 status code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"James\");\r",
+							"   pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Boxer\");\r",
+							"   pm.expect(pm.response.json()[\"age\"]).to.eq(9);\r",
+							"   pm.expect(pm.response.json()[\"school\"][\"id\"]).to.eq(pm.environment.get(\"school_id2\"));\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete school2 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pet2 after deleting school2 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 status code\", function () {\r",
+							"    //Check for 200 status code\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"content is valid\", function () {\r",
+							"   //Check if the response content is valid and matches the expected values\r",
+							"   pm.expect(pm.response.json()[\"name\"]).to.eq(\"James\");\r",
+							"   pm.expect(pm.response.json()[\"breed\"]).to.eq(\"Boxer\");\r",
+							"   pm.expect(pm.response.json()[\"age\"]).to.eq(9);\r",
+							"   pm.expect(pm.response.json()[\"school\"]).to.eq(null);\r",
+							"   //Check if the self url is correct\r",
+							"   const self_url = pm.environment.get(\"app_url\") + \"/pets/\" + pm.response.json()[\"id\"];\r",
+							"   pm.expect(pm.response.json()[\"self\"]).to.eq(self_url);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete school1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete school3 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete school4 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id4}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id4}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete school5 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/schools/{{school_id5}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"schools",
+						"{{school_id5}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet1 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id1}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet2 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id2}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet3 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id3}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id3}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet4 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id4}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id4}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet6 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt1}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id6}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id6}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pet8 204",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"204 status code\", function () {\r",
+							"    //Check for success 204 response code\r",
+							"    pm.response.to.have.status(204);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{app_url}}/pets/{{pet_id8}}",
+					"host": [
+						"{{app_url}}"
+					],
+					"path": [
+						"pets",
+						"{{pet_id8}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
